@@ -2,8 +2,13 @@ package com.example.verpflegungsService.model;
 
 public enum Allergien {
 
-	;
-
-	private Patient patient;
+    Ei,
+    Erdnuss,
+    Fisch,
+    Gluten,
+    Sojabohnen,
+    Kuhmilch,
+    Schalenfrüchte,
+    KeineAllergie;
 
 }
