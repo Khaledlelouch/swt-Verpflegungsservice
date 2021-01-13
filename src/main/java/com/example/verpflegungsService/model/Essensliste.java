@@ -9,11 +9,11 @@ public class Essensliste {
 	private Date datum;
 
 	public Date getDatum() {
-		return null;
+		return this.datum;
 	}
 
 	public Mahlzeitstyp getTyp() {
-		return null;
+		return this.mahlzeitstyp;
 	}
 
 }
