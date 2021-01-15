@@ -1,17 +1,27 @@
 package com.example.verpflegungsService.model;
 
-import com.sun.xml.bind.v2.model.core.ID;
+import com.sun.istack.NotNull;
+import org.hibernate.mapping.Set;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
 import java.util.Date;
-import java.util.Set;
 import java.util.List;
 
+
+@Entity //-Datenbank zu sagen , dass es ein tabelle ist
+
 public class Patient {
+	@Id //--Priary Key
+	@GeneratedValue //--
 
 	private int id;
 
+	@NotNull
 	private String vorname;
-
+	@NotNull
 	private String nachname;
 
 	private Date geburtstag;
@@ -28,19 +38,9 @@ public class Patient {
 
 	private int mobilnummer;
 
-	private Set<Allergien> allergien;
+	private List<Allergien> allergien;
 
 	private Ernaehrungstyp ernaehrungstyp;
-
-	private Zimmer zimmer;
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
 
 	public String getVorname() {
 		return vorname;
@@ -114,11 +114,11 @@ public class Patient {
 		this.mobilnummer = mobilnummer;
 	}
 
-	public Set<Allergien> getAllergien() {
+	public List<Allergien> getAllergien() {
 		return allergien;
 	}
 
-	public void setAllergien(Set<Allergien> allergien) {
+	public void setAllergien(List<Allergien> allergien) {
 		this.allergien = allergien;
 	}
 
@@ -129,18 +129,4 @@ public class Patient {
 	public void setErnaehrungstyp(Ernaehrungstyp ernaehrungstyp) {
 		this.ernaehrungstyp = ernaehrungstyp;
 	}
-
-	public Zimmer getZimmer() {
-		return zimmer;
-	}
-
-	public void setZimmer(Zimmer zimmer) {
-		this.zimmer = zimmer;
-	}
-
-
-	public List<Bestellung> getBestellung() {
-		return null;
-	}
-
 }

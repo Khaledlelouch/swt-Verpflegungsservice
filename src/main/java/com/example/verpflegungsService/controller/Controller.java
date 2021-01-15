@@ -1,38 +1,46 @@
 package com.example.verpflegungsService.controller;
 
-import com.example.verpflegungsService.model.Essen;
-import com.example.verpflegungsService.model.Mahlzeitstyp;
+
+import com.example.verpflegungsService.databasecontroller.DatenbankController;
 import com.example.verpflegungsService.model.Patient;
+import com.example.verpflegungsService.model.PatientDTO;
 import com.example.verpflegungsService.model.Station;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jdbc.repository.query.Query;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
+
 
 import java.util.List;
 
+@RestController
+@CrossOrigin(origins ="http://localhost:4200")
+@RequestMapping("/api/sekretaeriat/patient")
 public class Controller {
 
-	public Patient getPatient(String name) {
-		return null;
+	@Autowired
+	DatenbankController service;
+
+	@GetMapping
+	public ResponseEntity<List<Patient>> getAllPatient() {
+		return new ResponseEntity<List<Patient>>(service.getPatientListe(),HttpStatus.OK);
 	}
 
-	/**
-	 *  
-	 */
-	public List<Essen> getEssen(Mahlzeitstyp typ) {
-		return null;
+	@GetMapping("/{name}")
+	public ResponseEntity<List<Patient>> getSearchedPatient(@PathVariable String name){
+		return new ResponseEntity<List<Patient>>(service.getSearchedPatientList(name), HttpStatus.OK);
 	}
+	@PostMapping
+	public ResponseEntity<List<Patient>> createPatient(@RequestBody PatientDTO patient){
+		return new ResponseEntity<List<Patient>>(service.savePatient(patient),HttpStatus.OK);
+	}
+
 
 	public List<Station> getStationsListe() {
 		return null;
 	}
 
-	/**
-	 *  
-	 */
-	public void anmelden(String name, String passwort) {
 
-	}
-
-	public void abmelden() {
-
-	}
 
 }

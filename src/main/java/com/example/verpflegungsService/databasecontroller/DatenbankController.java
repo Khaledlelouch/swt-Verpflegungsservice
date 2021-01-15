@@ -1,60 +1,50 @@
 package com.example.verpflegungsService.databasecontroller;
 
-//import java.sql.JDBC.API;
-
 import com.example.verpflegungsService.model.*;
-//import org.verpflegungsservice.model.Benutzer;
-//import org.verpflegungsservice.model.Patient;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
 import java.util.List;
 
+
+
+@Service
 public class DatenbankController {
 
-//	private JDBC API jDBC API;
+	@Autowired                            //Service und Autowired generiert instanz von klasse
+	//Der Klasse, die wir brauchen, schreiben wir @Service Class
+	// Wo brauchen wir die klasse, schreiben wir, @Autowired Class class,
+	//
+	PatientRepository repository;
 
-	public Benutzer getBenutzer(String name, String passwort) {
-		return null;
-	}
-
-	public void saveBestellung(Bestellung bestellung) {
-
-	}
-
-	public void savePatient(Patient patient) {
+	public void savePatient(PatientDTO patient) {
+		repository.save(patient);
 
 	}
 
-	/**
-	 *  
-	 */
-	public List<String> getTask(Benutzer benutzer) {
-		return null;
-	}
-
-	public List<Station> getStationsListe() {
-		return null;
-	}
 
 	public List<Patient> getPatientListe() {
-		return null;
-	}
-
-	/**
-	 *  
-	 */
-	public List<Essensliste> getEssensListe() {
-		return null;
-	}
-
-	public List<Essen> getPossibleEssen() {
-		return null;
-	}
-
-	public List<Bestellung> getBestellungen() {
-		return null;
-	}
-
-	public void removeBestellung(Bestellung bestellung) {
+		return  repository.findAll();
 
 	}
 
+	public List<Patient> getSearchedPatientList(String name){
+		return repository.findListOfPatient(name);
+	}
+
+
+	public void deletePatient(long id){
+		repository.deleteById(id);
+
+	}
+//CRUD---Create, Read, Update, Delete
 }
+
+	/*4 backend-----1) Entity---Datenbank Table
+
+                    2) Repository---Generiert selbst SQL Query, um die daten von DB zu arbeiten, es hatselbst .save() methode
+                   3) Service---- Service benutzt repository(query), um bestimmte daten von DB zu kriegen oder speichern,
+                                 ----diese sevice hat methode...
+                   4)----Controller---Beziehung zwischen Frontend und backend---
+	 */
+
