@@ -25,7 +25,7 @@ public class Sekretaer extends Benutzer{
 								  int mobileNR, Set<Allergien> allergien) {
 
 		Patient patient = new Patient();
-		patient.setId(countPatientID.incrementAndGet());
+		//patient.setId(countPatientID.incrementAndGet());
 		patient.setVorname(vorname);
 		patient.setNachname(nachname);
 		patient.setGeburtstag(geburtstag);
@@ -35,7 +35,7 @@ public class Sekretaer extends Benutzer{
 		patient.setPostleitzahl(postleitzahl);
 		patient.setOrt(ort);
 		patient.setMobilnummer(mobileNR);
-		patient.setAllergien(allergien);
+		//patient.setAllergien(allergien);
 		return null;
 	}
 

@@ -32,10 +32,17 @@ public class Controller {
 		return new ResponseEntity<List<Patient>>(service.getSearchedPatientList(name), HttpStatus.OK);
 	}
 	@PostMapping
-	public ResponseEntity<List<Patient>> createPatient(@RequestBody PatientDTO patient){
+	public ResponseEntity<List<Patient>> createPatient(@RequestBody Patient patient){
 		return new ResponseEntity<List<Patient>>(service.savePatient(patient),HttpStatus.OK);
 	}
-
+	@PutMapping("/{id}")
+	public ResponseEntity<Patient> editPatient(@PathVariable long id,@RequestBody Patient patient) throws Exception {
+		return new ResponseEntity<Patient>(service.editPatient( id,patient), HttpStatus.OK);
+	}
+	@DeleteMapping("/{id}")
+	public ResponseEntity<List<Patient>> deletePatient(@PathVariable long id) throws Exception {
+		return new ResponseEntity<List<Patient>>(service.deletePatient(id), HttpStatus.OK);
+	}
 
 	public List<Station> getStationsListe() {
 		return null;
