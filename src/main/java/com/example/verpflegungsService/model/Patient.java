@@ -38,7 +38,7 @@ public class Patient {
 
 	private int mobilnummer;
 
-	private List<Allergien> allergien;
+	private Allergien allergien;
 
 	private Ernaehrungstyp ernaehrungstyp;
 
@@ -114,11 +114,11 @@ public class Patient {
 		this.mobilnummer = mobilnummer;
 	}
 
-	public List<Allergien> getAllergien() {
+	public Allergien getAllergien() {
 		return allergien;
 	}
 
-	public void setAllergien(List<Allergien> allergien) {
+	public void setAllergien(Allergien allergien) {
 		this.allergien = allergien;
 	}
 

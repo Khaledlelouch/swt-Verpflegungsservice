@@ -11,4 +11,6 @@ public enum Allergien {
     Schalenfrüchte,
     KeineAllergie;
 
+
+
 }
