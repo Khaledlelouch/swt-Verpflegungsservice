@@ -5,7 +5,6 @@ import java.util.Set;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public class Sekretaer extends Benutzer{
-	//Author: Majdi
 	//auto increment Patient ID
 	private static final AtomicInteger countPatientID = new AtomicInteger(0);
 	/**
