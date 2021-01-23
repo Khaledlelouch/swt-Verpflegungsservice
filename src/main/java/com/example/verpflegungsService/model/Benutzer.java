@@ -13,11 +13,7 @@ public abstract class Benutzer {
 
 
 	private List<String> anmerkungen;
-	//Author: Majdi
-	//Taskliste fehlt bei klassen Diagramm, ich habe die hier hinzugefügt
-	//Sollen wir taskListe für jede Rolle haben? wie werden wir Taskliste bzw.
-	// anmerkungen anhand der Rolle zurückliefern? wie kann Benutzer Anmerkungen zur nächsten Schichtmitarbeiter
-	//Anmerkungen anpassen
+	
 	private List<String> taskListe;
 
 
