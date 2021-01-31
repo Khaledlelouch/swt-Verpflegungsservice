@@ -16,10 +16,10 @@ public class DatenbankController {
 
 	@Autowired
 	PatientRepository patientRepository;
-   @Autowired
-   ZimmerRepository zimmerRepository;
-   @Autowired
-   StationRepository stationRepository;
+	@Autowired
+	ZimmerRepository zimmerRepository;
+	@Autowired
+	StationRepository stationRepository;
 
 	public PatientDTO savePatient(PatientDTO patientDTO) {
 		Patient toSavePatient =new Patient();
@@ -44,8 +44,8 @@ public class DatenbankController {
 		toSavePatient.setStrasse(patientDTO.getStrasse());
 		toSavePatient.setErkrankung(patientDTO.getErkrankung());
 		toSavePatient.setPostleitzahl(patientDTO.getPostleitzahl());
-        toSavePatient.setZimmerEntity(toSaveZimmer);
-        toSavePatient.setStationEntity(toSaveStation);
+		toSavePatient.setZimmerEntity(toSaveZimmer);
+		toSavePatient.setStationEntity(toSaveStation);
 		patientRepository.save(toSavePatient);
 
 
@@ -144,5 +144,3 @@ public class DatenbankController {
 		}
 	}
 }
-
-

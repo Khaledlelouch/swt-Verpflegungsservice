@@ -1,12 +1,10 @@
 package com.SW1.verpflegungService.model;
 
 
-import org.springframework.stereotype.Service;
-
 import javax.persistence.*;
 import java.util.List;
 
-@Service
+
 @Entity
 public class Zimmer {
     @Id

@@ -1,18 +1,17 @@
 package com.SW1.verpflegungService.model;
 
-import org.springframework.stereotype.Service;
-
 import javax.persistence.*;
 import java.util.List;
 
 
 @Entity
-@Service
 public class Station {
 
 	@Id
 	@GeneratedValue
 	private int stationNr;
+
+
 
 	@OneToMany(mappedBy ="stationEntity", cascade = CascadeType.ALL)
 	private List<Patient> patientList;

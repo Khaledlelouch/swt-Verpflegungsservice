@@ -21,6 +21,7 @@ public class Controller {
 	@GetMapping
 	public ResponseEntity<List<PatientDTO>> getAllPatient() {
 		return new ResponseEntity<List<PatientDTO>>(service.getPatientListe(),HttpStatus.OK);
+
 	}
 	@GetMapping("/{id}")
 	public ResponseEntity<PatientDTO> getPatientById(@PathVariable long id){
@@ -42,8 +43,9 @@ public class Controller {
 	@DeleteMapping("/{id}")
 	public HttpStatus deletePatient(@PathVariable long id) throws Exception {
 		service.deletePatient(id);
-		return  HttpStatus.NO_CONTENT;
+		return HttpStatus.NO_CONTENT;
 	}
 
 
 }
+
